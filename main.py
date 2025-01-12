@@ -19,16 +19,19 @@ openai.api_key=os.environ.get("Open_Ai_Key")
 
 def main(path):
     with open(path,'rb') as image_file:
-        response= openai.Chat.create(
+        
+        
+        response= openai.completions.create(
+        prompt="Describe this bjj image",
         model="gpt-4",  # Use GPT-4 with vision capabilities
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": "Please describe this image."}
-        ],
-        files=[{
-            "file": image_file,
-            "purpose": "answers"
-        }]
+        #messages=[
+        #    {"role": "system", "content": "You are a helpful assistant."},
+        #    {"role": "user", "content": "Please describe this image."}
+        #],
+        #files=[{
+        #    "file": image_file,
+         #   "purpose": "answers"
+        #}]
     )
         
         print(response)
